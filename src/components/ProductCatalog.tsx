@@ -40,7 +40,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ darkMode }) => {
 
   const filterTabs = [
     { id: 'todos', label: 'Todos los Productos', icon: Sparkles },
-    { id: 'camisetas', label: 'Camisetas', icon: Shirt },
+    { id: 'camisetas', label: 'Remeras 24.1', icon: Shirt },
     { id: 'gorras', label: 'Gorras', icon: Scissors },
     { id: 'termos', label: 'Vasos & Termos', icon: Coffee },
     { id: 'bolsos', label: 'Bolsos & Tulas', icon: ShoppingBag },

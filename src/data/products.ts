@@ -16,22 +16,22 @@ export const PRODUCT_LINES: ProductLine[] = [
   {
     id: 'camisetas',
     number: 1,
-    title: 'CAMISETAS',
-    subtitle: 'Algodón 100%',
+    title: 'REMERAS',
+    subtitle: 'Algodón 24.1 • Varios Colores',
     accentColor: '#FACC15',
     badgeBg: 'bg-yellow-400',
     badgeText: 'text-black',
     basePrice: 14500,
     imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAnSx78CkZJYtiIA3OELR4-c_fp2lZdXWgkY8FVf25vVv0vnKYDBezN8_lxhuGTke8lHAaiyszfGJRtEUk8WXjycyACVj9dTweWXkLVK1L9Tms71QM-93m1NtDu3JqmRxl9PNwMbVNvcuSV7QYCUJXERuqheqmV2eBvgiu5MTFLknOsJEH2BVMTh15Ro5NMAL9ets3nFAAJcPGRUjPqrawPTyO-Vw7obEWYw6EcYsyxPnkID-UmxFtS',
-    description: 'Diferentes estilos, colores y tallas (Oversize, Clásica, Cuello Redondo o V). Ideales para tu marca propia, eventos empresariales o regalos.',
+    description: 'Remeras confeccionadas en 100% algodón 24.1 peinado de alto gramaje. Variedad de colores, cortes (Oversize, Clásica, Cuello Redondo) y talles para tu marca, eventos o regalos.',
     tags: [
-      { text: 'Algodón Premium', icon: 'Sparkle', color: 'text-yellow-400' },
-      { text: 'Impresión Alta Calidad', icon: 'Printer', color: 'text-sky-400' }
+      { text: 'Algodón 24.1 Premium', icon: 'Sparkle', color: 'text-yellow-400' },
+      { text: 'Varios Colores en Stock', icon: 'Printer', color: 'text-sky-400' }
     ],
     subtypes: [
       { name: 'Negra Classic', tag: 'DTF Color', tagColor: 'text-pink-400' },
-      { name: 'Blanca Pro', tag: 'Sublimación', tagColor: 'text-sky-400' },
-      { name: 'Azul / Gris', tag: 'Vinilo Térmico', tagColor: 'text-yellow-400' }
+      { name: 'Blanca Pro', tag: 'DTF / Sublimación', tagColor: 'text-sky-400' },
+      { name: 'Colores & Melange', tag: 'DTF Textil HD', tagColor: 'text-yellow-400' }
     ],
     sizes: ['S (48x68cm)', 'M (52x71cm)', 'L (56x74cm)', 'XL (60x77cm)', '2XL (64x80cm)', '3XL Especial'],
     colors: [
@@ -40,11 +40,13 @@ export const PRODUCT_LINES: ProductLine[] = [
       { name: 'Azul Marino', hex: '#1E3A8A' },
       { name: 'Gris Melange', hex: '#9CA3AF' },
       { name: 'Rojo Carmesí', hex: '#DC2626' },
-      { name: 'Verde Militar', hex: '#3F4E4F' }
+      { name: 'Verde Militar', hex: '#3F4E4F' },
+      { name: 'Beige / Arena', hex: '#D7C4B7' },
+      { name: 'Azul Francia', hex: '#2563EB' }
     ],
     techniques: [
       { id: 'dtf', name: 'DTF Textil Full Color HD', tag: 'Recomendada', desc: 'Máxima nitidez fotográfica, tacto suave y alta elasticidad sin cuarteo.', extraPerUnit: 0 },
-      { id: 'sublimacion', name: 'Sublimación Digital HD', tag: 'Tacto Cero', desc: 'Ideal para prendas blancas y poli-algodón deportivo. Cero relieve.', extraPerUnit: 0 },
+      { id: 'sublimacion', name: 'Sublimación Digital HD', tag: 'Tacto Cero', desc: 'Ideal para remeras blancas y mezclas poli-algodón. Cero relieve.', extraPerUnit: 0 },
       { id: 'vinilo', name: 'Vinilo Textil Termotransferible', tag: 'Efecto Mate', desc: 'Perfecto para números, tipografías y logos vectoriales definidos.', extraPerUnit: 800 }
     ],
     placements: [
@@ -55,8 +57,8 @@ export const PRODUCT_LINES: ProductLine[] = [
       'Pecho + Manga'
     ],
     volumeDiscounts: DEFAULT_VOLUME_DISCOUNTS,
-    whatsappMessage: 'Hola, deseo información sobre la línea de CAMISETAS',
-    features: ['100% Algodón peinado o poli-algodón', 'Tallas S a 3XL para damas, caballeros y niños', 'Resistencia a más de 50 lavados']
+    whatsappMessage: 'Hola, deseo información sobre las REMERAS DE ALGODÓN 24.1 (Varios Colores)',
+    features: ['100% Algodón 24.1 peinado de alto gramaje y suavidad superior', 'Amplia paleta de colores disponibles en stock continuo', 'Talles S a 3XL para damas, caballeros y niños', 'Resistencia a más de 50 lavados']
   },
   {
     id: 'gorras',
@@ -316,17 +318,17 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   },
   {
     id: 'camisetas-dtf',
-    title: 'Camisetas Oversize y Clásicas DTF',
+    title: 'Remeras de Algodón 24.1 DTF (Varios Colores)',
     category: 'camisetas',
     badge: 'DTF Textil HD',
     badgeColor: 'border-yellow-400/40 text-yellow-300',
     imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAnSx78CkZJYtiIA3OELR4-c_fp2lZdXWgkY8FVf25vVv0vnKYDBezN8_lxhuGTke8lHAaiyszfGJRtEUk8WXjycyACVj9dTweWXkLVK1L9Tms71QM-93m1NtDu3JqmRxl9PNwMbVNvcuSV7QYCUJXERuqheqmV2eBvgiu5MTFLknOsJEH2BVMTh15Ro5NMAL9ets3nFAAJcPGRUjPqrawPTyO-Vw7obEWYw6EcYsyxPnkID-UmxFtS',
-    description: 'Estampados de alta resolución sin límite de color, tacto ultra suave y máxima durabilidad ante lavados intensivos.',
+    description: 'Estampados de alta resolución sin límite de color sobre algodón 24.1, tacto ultra suave y máxima durabilidad ante lavados intensivos.',
     client: 'Drop Colección Urbana',
     units: '60 unidades',
     technique: 'DTF Textil Full Color',
     rating: 5,
-    specs: ['Algodón peinado 200g', 'Resolución 1440 DPI', 'Cero cuarteado al estirar']
+    specs: ['Algodón 24.1 peinado', 'Resolución 1440 DPI', 'Cero cuarteado al estirar']
   },
   {
     id: 'hoodies-streetwear',
@@ -453,14 +455,14 @@ export const AUDIENCE_SEGMENTS: AudienceSegment[] = [
   {
     id: 'equipos',
     title: 'Equipos',
-    description: 'Camisetas deportivas, dorsales personalizados, gorras de escuadras competitivas y clubes.',
+    description: 'Remeras deportivas y de algodón 24.1, dorsales personalizados, gorras de escuadras competitivas y clubes.',
     accent: 'border-emerald-500/50 text-emerald-400 group-hover:border-emerald-400',
     iconName: 'Users'
   },
   {
     id: 'colegios',
     title: 'Colegios',
-    description: 'Buzos de Promociones, camisetas de excursión, tulas deportivas y recuerdos de grado para estudiantes.',
+    description: 'Buzos de Promociones, remeras de excursión en algodón 24.1, tulas deportivas y recuerdos de grado para estudiantes.',
     accent: 'border-purple-500/50 text-purple-400 group-hover:border-purple-400',
     iconName: 'GraduationCap'
   }

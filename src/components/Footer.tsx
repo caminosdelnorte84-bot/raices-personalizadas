@@ -148,7 +148,7 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
                 </li>
                 <li>
                   <a href="#catalogo" className="hover:text-yellow-400 transition-colors">
-                    1. Camisetas en Algodón y DTF
+                    1. Remeras de Algodón 24.1 (Varios Colores)
                   </a>
                 </li>
                 <li>

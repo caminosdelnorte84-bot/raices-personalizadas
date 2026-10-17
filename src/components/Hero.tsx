@@ -190,7 +190,7 @@ export const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                 >
                   <img
                     src={HERO_SHOWCASE_IMG}
-                    alt="Muestra de Catálogo Raíces Personalizaciones con camisetas, gorras y termos personalizados"
+                    alt="Muestra de Catálogo Raíces Personalizaciones con remeras de algodón 24.1, gorras y termos personalizados"
                     referrerPolicy="no-referrer"
                     className="w-full h-auto object-cover rounded-xl shadow-inner brightness-95 hover:brightness-105 transition-all duration-300"
                   />
