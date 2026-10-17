@@ -57,40 +57,6 @@ export const GalleryPortfolio: React.FC<GalleryPortfolioProps> = ({ darkMode }) 
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-          <div
-            className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-              darkMode
-                ? 'bg-yellow-400/10 border border-yellow-400/30 text-[#FACC15]'
-                : 'bg-yellow-100 border border-yellow-300 text-yellow-800'
-            }`}
-          >
-            <Camera className="w-4 h-4" />
-            <span>MUESTRAS &amp; ACABADOS REALES</span>
-          </div>
-
-          <h2
-            className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight ${
-              darkMode ? 'text-white' : 'text-gray-900'
-            }`}
-          >
-            GALERÍA DE TRABAJOS{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FACC15] via-amber-300 to-[#0EA5E9]">
-              REALES
-            </span>
-          </h2>
-
-          <p className="font-brush text-2xl sm:text-3xl text-[#0EA5E9]">
-            ¡Calidad e impacto visual en cada prenda y artículo terminado!
-          </p>
-
-          <p className={`text-sm sm:text-base leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-            Fotografías directas de nuestro taller con proyectos producidos para marcas streetwear,
-            cuadros de aluminio, colegios, familias y eventos. Haz clic en cualquier trabajo para abrir el
-            visor de alta resolución con zoom interactivo.
-          </p>
-        </div>
 
         {/* Quality Guarantee Strip */}
         <div
