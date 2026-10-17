@@ -183,7 +183,7 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
           {/* Bottom Credits */}
           <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 gap-4">
             <p>© 2025 Raíces Personalizaciones. Todos los derechos reservados.</p>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-2">
               <span className="hover:text-gray-300 transition-colors">
                 Diseño Personalizado de Alto Impacto
               </span>
@@ -191,6 +191,26 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
               <a href="#envios" className="hover:text-yellow-400 transition-colors">
                 Envíos a Todo el País
               </a>
+              <span>
+                Imagen ilustrativa:{' '}
+                <a
+                  href="https://commons.wikimedia.org/wiki/File:Personalized_nana_mugs_and_cookies_on_a_kitchen_counter_and_table_(16741382649).jpg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow-400 transition-colors"
+                >
+                  Personal Creations (recortada)
+                </a>
+                {' · '}
+                <a
+                  href="https://creativecommons.org/licenses/by/2.0/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow-400 transition-colors"
+                >
+                  CC BY 2.0
+                </a>
+              </span>
             </div>
           </div>
         </div>
@@ -198,4 +218,3 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
     </>
   );
 };
-

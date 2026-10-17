@@ -1,4 +1,5 @@
 import { ProductLine, PortfolioItem, FaqItem, AudienceSegment, VolumeDiscount } from '../types';
+import tazaPersonalizadaImg from '../assets/images/taza_personalizada.jpg';
 
 export const HERO_SHOWCASE_IMG = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDcJMQhLqUi2xTp85XvEghqsI7xT4I8o_L6-bDea2IsoTiL2sSgZTLK8x7jKK5Ia2mNUBjXxOeI0RzL0BHo8unulJM6ZRniycaOo3KfRBrTsy-wz08qhIGVCVExgx2aebBtal9IRyHFkaQx0_KqAapGrg6EmBxHnu4pTAWivkl8e_MhZLTQaoI-Nckkfihh-QdKOrG2I46MZS9fEbCg0EMC90JJawRzZd-9rLz63snm-CayKrGV42Pi';
 
@@ -112,7 +113,7 @@ export const PRODUCT_LINES: ProductLine[] = [
     badgeBg: 'bg-sky-500',
     badgeText: 'text-black',
     basePrice: 13800,
-    imageUrl: '/src/assets/images/gallery_tumbler_laser_1792096957777.jpg',
+    imageUrl: tazaPersonalizadaImg,
     description: 'Tazas de polímero resistentes y cerámica importada de alta calidad. Acabado brillante con nitidez fotográfica para tus desayunos, oficina o regalos especiales.',
     tags: [
       { text: 'Polímero Irrompible', icon: 'Shield', color: 'text-sky-400' },
@@ -377,7 +378,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: 'termos',
     badge: 'Sublimación Fotográfica',
     badgeColor: 'border-sky-400/40 text-sky-300',
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDFSBlPtSVHQB89qao1tMcFpqkE7RCRyMzdjPUN4Uh11NBVDJT-kQGg_Din6QDUy5SoXNMifQ-AWIuaX0JtxPL1gIMyZY3hdOVqxPKGkKVskPiXtUDR0zLKs8vjJ0jfO9b4T6jOmK2KzmaPj6oRbOSIXg2-DtnxdMAqNiLwOosANP-WzVuNPpmFY5qYsuyT--3h4__HfSS-mUJjk6xwV1_bcoQoFQJkvKTt0Am_Kr4Tc-EgFYehC2I4',
+    imageUrl: tazaPersonalizadaImg,
     description: 'Mugs y termos personalizados con nitidez fotográfica y acabados en cerámica brillante o acero inoxidable mate.',
     client: 'Colección de Recordatorios',
     units: '120 unidades',
