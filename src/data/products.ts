@@ -106,34 +106,33 @@ export const PRODUCT_LINES: ProductLine[] = [
   {
     id: 'termos',
     number: 3,
-    title: 'VASOS Y TERMOS',
-    subtitle: 'Térmicos & Mugs',
+    title: 'TAZAS',
+    subtitle: 'Polímero & Cerámica Importada',
     accentColor: '#0EA5E9',
     badgeBg: 'bg-sky-500',
     badgeText: 'text-black',
     basePrice: 13800,
     imageUrl: '/src/assets/images/gallery_tumbler_laser_1792096957777.jpg',
-    description: 'Perfectos para uso diario, eventos, recordatorios y souvenirs de impacto. Acabado brillante o mate con aislamiento térmico al vacío.',
+    description: 'Tazas de polímero resistentes y cerámica importada de alta calidad. Acabado brillante con nitidez fotográfica para tus desayunos, oficina o regalos especiales.',
     tags: [
-      { text: 'Materiales de Calidad', icon: 'Shield', color: 'text-sky-400' },
-      { text: 'Conservan Temperatura', icon: 'Thermometer', color: 'text-pink-400' }
+      { text: 'Polímero Irrompible', icon: 'Shield', color: 'text-sky-400' },
+      { text: 'Cerámica Premium', icon: 'Sparkle', color: 'text-pink-400' }
     ],
     subtypes: [
-      { name: 'Mug 11oz', tag: 'Full Color', tagColor: 'text-yellow-400' },
-      { name: 'Termo Metálico', tag: 'Inoxidable', tagColor: 'text-sky-400' },
-      { name: 'Vaso Deportivo', tag: 'Tapa Hermética', tagColor: 'text-pink-400' }
+      { name: 'Taza de Polímero', tag: 'Apto Microondas', tagColor: 'text-yellow-400' },
+      { name: 'Cerámica Importada', tag: 'Calidad AAA', tagColor: 'text-sky-400' },
+      { name: 'Taza Mágica', tag: 'Efecto Térmico', tagColor: 'text-pink-400' }
     ],
-    sizes: ['Termo Inox Doble Pared 500ml', 'Vaso Térmico Tumbler 450ml', 'Mug Cerámica Importada 11oz', 'Botella Deportiva Aluminio 750ml'],
+    sizes: ['Taza Polímero 11oz (Ideal Niños)', 'Taza Cerámica Importada 11oz', 'Taza de Cerámica Mágica 11oz', 'Taza de Cerámica con Interior de Color'],
     colors: [
-      { name: 'Acero Inox Espejo', hex: '#CBD5E1' },
-      { name: 'Negro Mate Premium', hex: '#18181B' },
       { name: 'Blanco Glaciar', hex: '#FFFFFF', border: true },
-      { name: 'Azul Metalizado', hex: '#2563EB' },
-      { name: 'Rosa Pastel Mate', hex: '#F472B6' }
+      { name: 'Interior Negro', hex: '#18181B' },
+      { name: 'Interior Rosa', hex: '#F472B6' },
+      { name: 'Interior Azul', hex: '#2563EB' },
+      { name: 'Interior Rojo', hex: '#DC2626' }
     ],
     techniques: [
-      { id: 'sublimacion_termo', name: 'Sublimación Digital 360°', tag: 'Full Color', desc: 'Colores brillantes a toda vuelta con barniz protector apto lavavajillas.', extraPerUnit: 0 },
-      { id: 'laser_fibra', name: 'Grabado Láser de Fibra', tag: 'Inalterable', desc: 'Remueve la capa superficial revelando el acero plateado con precisión milimétrica.', extraPerUnit: 900 }
+      { id: 'sublimacion_taza', name: 'Sublimación Digital HD', tag: 'Full Color', desc: 'Impresión molecular que no se sale con los lavados ni el microondas.', extraPerUnit: 0 }
     ],
     placements: [
       'Una Cara (Logo Central)',
@@ -141,8 +140,8 @@ export const PRODUCT_LINES: ProductLine[] = [
       'Envolvente 360° Completo'
     ],
     volumeDiscounts: DEFAULT_VOLUME_DISCOUNTS,
-    whatsappMessage: 'Hola, deseo información sobre la línea de VASOS Y TERMOS',
-    features: ['Acero inoxidable grado alimenticio 304', 'Doble pared térmica con aislamiento al vacío', 'Sublimación fotográfica 360° o grabado láser']
+    whatsappMessage: 'Hola, deseo información sobre las TAZAS DE POLÍMERO Y CERÁMICA',
+    features: ['Polímero de alta resistencia irrompible', 'Cerámica importada de brillo superior', 'Aptas para lavavajillas y microondas']
   },
   {
     id: 'bolsos',

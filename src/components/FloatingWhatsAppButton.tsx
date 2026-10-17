@@ -52,7 +52,7 @@ export const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({ 
     { label: 'Souvenirs (Llaveros, Imanes, Pines)', icon: Gift, text: '¡Hola! Me gustaría cotizar souvenirs personalizados (llaveros, imanes, destapadores o recordatorios).' },
     { label: 'Remeras de Algodón 24.1 (Varios Colores)', icon: Shirt, text: '¡Hola! Me gustaría información sobre remeras de algodón 24.1 en varios colores personalizadas en DTF Textil.' },
     { label: 'Gorras Bordadas 3D', icon: Scissors, text: '¡Hola! Quisiera información sobre gorras con bordado 3D.' },
-    { label: 'Vasos y Termos Térmicos', icon: Coffee, text: '¡Hola! Me interesa información sobre termos y mugs personalizados para un proyecto.' },
+    { label: 'Tazas de Polímero y Cerámica', icon: Coffee, text: '¡Hola! Me interesa información sobre tazas personalizadas de polímero o cerámica para un proyecto.' },
     { label: 'Bolsos y Tote Bags', icon: ShoppingBag, text: '¡Hola! Quisiera información sobre bolsos, tulas y tote bags personalizadas.' },
     { label: 'Envíos a Todo el País', icon: Truck, text: '¡Hola! Quisiera consultar costos y tiempos de despacho para mi localidad.' },
   ];
