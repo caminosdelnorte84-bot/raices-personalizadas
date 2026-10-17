@@ -1,0 +1,6 @@
+{
+  "name": "Estampados Olivo - Catálogo Personalizado",
+  "description": "Taller de personalización textil y publicitaria: DTF textil, sublimación, bordados de alta definición, grabado láser y artículos promocionales.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
