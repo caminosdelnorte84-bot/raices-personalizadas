@@ -285,38 +285,6 @@ export const GalleryPortfolio: React.FC<GalleryPortfolioProps> = ({ darkMode }) 
           </div>
         )}
 
-        {/* Custom Project Prompt Banner */}
-        <div
-          className={`mt-14 p-6 sm:p-8 rounded-3xl border flex flex-col sm:flex-row items-center justify-between gap-6 ${
-            darkMode
-              ? 'bg-gradient-to-r from-[#161F2E] via-[#1A2538] to-[#161F2E] border-yellow-400/40'
-              : 'bg-gradient-to-r from-yellow-50 via-amber-50 to-yellow-50 border-yellow-300'
-          }`}
-        >
-          <div className="space-y-1.5 text-center sm:text-left">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#FACC15] flex items-center justify-center sm:justify-start gap-1.5">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>¿No ves exactamente lo que buscas?</span>
-            </span>
-            <h4 className={`text-xl sm:text-2xl font-black ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-              Fabricamos muestras personalizadas y prototipos previos
-            </h4>
-            <p className={`text-xs max-w-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-              Envíanos tu logotipo o diseño y te presentamos un mockup digital 3D sin costo para que
-              apruebes acabados y colores antes de imprimir.
-            </p>
-          </div>
-
-          <a
-            href="https://wa.me/5492216268594?text=Hola%20Raíces%20Personalizaciones,%20quiero%20solicitar%20un%20mockup%20o%20muestra%20de%20mi%20diseño"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-emerald-500 text-slate-950 font-extrabold text-xs sm:text-sm uppercase tracking-wider shrink-0 shadow-lg transition-transform hover:scale-105 flex items-center gap-2"
-          >
-            <MessageCircle className="w-4 h-4 fill-slate-950" />
-            <span>Pedir Mockup por WhatsApp</span>
-          </a>
-        </div>
       </div>
 
       {/* Lightbox Modal */}

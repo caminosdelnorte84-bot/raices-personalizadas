@@ -8,7 +8,6 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ProductCatalog } from './components/ProductCatalog';
 import { ShippingNationwide } from './components/ShippingNationwide';
-import { GalleryPortfolio } from './components/GalleryPortfolio';
 import { AudienceSegments } from './components/AudienceSegments';
 import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
@@ -55,9 +54,6 @@ export default function App() {
 
           {/* Envíos a todo el país - Cobertura y Tiempos de Entrega Nacionales */}
           <ShippingNationwide darkMode={darkMode} />
-
-          {/* Real Finished Portfolio Works with Zoom Lightbox Modal */}
-          <GalleryPortfolio darkMode={darkMode} />
 
           {/* 5 Audience Segments: Para Quién (Empresas, Regalos, Eventos, Equipos, Colegios) */}
           <AudienceSegments darkMode={darkMode} />

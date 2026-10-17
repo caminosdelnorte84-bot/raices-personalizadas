@@ -14,7 +14,6 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
   const navLinks = [
     { label: 'Catálogo', href: '#catalogo' },
     { label: 'Envíos Nacionales', href: '#envios' },
-    { label: 'Galería de Trabajos', href: '#galeria' },
     { label: 'Ideal Para', href: '#para-quien' },
     { label: 'Preguntas Frecuentes', href: '#faq' },
     { label: 'Contacto', href: '#contacto' },

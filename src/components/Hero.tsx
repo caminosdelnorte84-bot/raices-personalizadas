@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flame, Layers, CheckCircle, Award, Palette, Shirt, Headphones, Sparkles, Briefcase, Camera, MessageCircle, Truck } from 'lucide-react';
+import { Flame, Layers, CheckCircle, Award, Palette, Shirt, Headphones, Sparkles, Briefcase, MessageCircle, Truck } from 'lucide-react';
 import { HERO_SHOWCASE_IMG, PILLARS } from '../data/products';
 
 interface HeroProps {
@@ -116,17 +116,6 @@ export const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                 <span>CUADROS DE ALUMINIO</span>
               </a>
 
-              <a
-                href="#galeria"
-                className={`inline-flex items-center justify-center gap-2 px-5 py-3.5 border-2 border-gray-700 font-bold text-sm sm:text-base rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 ${
-                  darkMode
-                    ? 'bg-[#161F2E] hover:bg-[#1E293B] text-white hover:border-gray-500'
-                    : 'bg-white hover:bg-gray-100 text-gray-800 border-gray-300'
-                }`}
-              >
-                <Camera className="w-4 h-4 sm:w-5 sm:h-5 text-[#0EA5E9]" />
-                <span>TRABAJOS REALES</span>
-              </a>
 
               <a
                 href="https://wa.me/5492216268594?text=Hola%20Raíces%20Personalizaciones,%20tengo%20un%20proyecto%20en%20mente%20y%20deseo%20información"
