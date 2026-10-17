@@ -5,18 +5,23 @@ import { useCart } from '../context/CartContext';
 interface NavbarProps {
   darkMode: boolean;
   onToggleTheme: () => void;
+  isDetailPage?: boolean;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  darkMode,
+  onToggleTheme,
+  isDetailPage = false,
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { openCart, totalItems } = useCart();
 
   const navLinks = [
-    { label: 'Catálogo', href: '#catalogo' },
-    { label: 'Envíos Nacionales', href: '#envios' },
-    { label: 'Ideal Para', href: '#para-quien' },
-    { label: 'Preguntas Frecuentes', href: '#faq' },
-    { label: 'Contacto', href: '#contacto' },
+    { label: 'Catálogo', href: `${isDetailPage ? '/' : ''}#catalogo` },
+    { label: 'Envíos Nacionales', href: `${isDetailPage ? '/' : ''}#envios` },
+    { label: 'Ideal Para', href: `${isDetailPage ? '/' : ''}#para-quien` },
+    { label: 'Preguntas Frecuentes', href: `${isDetailPage ? '/' : ''}#faq` },
+    { label: 'Contacto', href: `${isDetailPage ? '/' : ''}#contacto` },
   ];
 
   return (
@@ -47,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           {/* Logo Branding */}
-          <a href="#" className="flex items-center gap-3 group">
+          <a href={isDetailPage ? '/' : '#'} className="flex items-center gap-3 group">
             <div className="relative">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-tr from-[#FACC15] via-[#EC4899] to-[#0EA5E9] p-0.5 flex items-center justify-center shadow-glow-yellow group-hover:scale-105 transition-transform duration-200">
                 <div

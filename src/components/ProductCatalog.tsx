@@ -31,9 +31,10 @@ import { formatPriceARS } from '../context/CartContext';
 
 interface ProductCatalogProps {
   darkMode: boolean;
+  onOpenMugsPage: () => void;
 }
 
-export const ProductCatalog: React.FC<ProductCatalogProps> = ({ darkMode }) => {
+export const ProductCatalog: React.FC<ProductCatalogProps> = ({ darkMode, onOpenMugsPage }) => {
   const [selectedFilter, setSelectedFilter] = useState<string>('todos');
   const [configProduct, setConfigProduct] = useState<ProductLine | null>(null);
   const [specsProduct, setSpecsProduct] = useState<ProductLine | null>(null);
@@ -318,6 +319,21 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ darkMode }) => {
 
                 {/* Action CTAs: Order Configurator + Specs */}
                 <div className="pt-2 space-y-2">
+                  {prod.id === 'termos' && (
+                    <button
+                      type="button"
+                      onClick={onOpenMugsPage}
+                      className={`w-full py-2.5 px-4 rounded-xl border font-extrabold text-[11px] uppercase tracking-wider flex items-center justify-center gap-2 transition-colors ${
+                        darkMode
+                          ? 'border-sky-400/40 text-sky-300 hover:bg-sky-400/10'
+                          : 'border-sky-300 text-sky-700 hover:bg-sky-50'
+                      }`}
+                    >
+                      <Info className="w-3.5 h-3.5" />
+                      <span>Más información sobre las tazas</span>
+                    </button>
+                  )}
+
                   {/* Primary CTA: Configure & Add */}
                   <button
                     type="button"
@@ -423,11 +439,13 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ darkMode }) => {
       </div>
 
       {/* Product Configurator Modal */}
-      <ProductConfigModal
-        product={configProduct}
-        onClose={() => setConfigProduct(null)}
-        darkMode={darkMode}
-      />
+      {configProduct && (
+        <ProductConfigModal
+          product={configProduct}
+          onClose={() => setConfigProduct(null)}
+          darkMode={darkMode}
+        />
+      )}
 
       {/* Technical Specifications Modal */}
       {specsProduct && (

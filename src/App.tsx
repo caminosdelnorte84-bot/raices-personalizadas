@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ProductCatalog } from './components/ProductCatalog';
+import { MugsPage } from './components/MugsPage';
 import { ShippingNationwide } from './components/ShippingNationwide';
 import { AudienceSegments } from './components/AudienceSegments';
 import { FaqSection } from './components/FaqSection';
@@ -18,6 +19,15 @@ import { CartProvider } from './context/CartContext';
 export default function App() {
   // Dark mode by default as requested: "Asegúrate de incluir un modo oscuro por defecto."
   const [darkMode, setDarkMode] = useState<boolean>(true);
+  const [isMugsPage, setIsMugsPage] = useState(
+    () => window.location.pathname === '/tazas-personalizadas'
+  );
+
+  const openMugsPage = () => {
+    window.history.pushState({}, '', '/tazas-personalizadas');
+    setIsMugsPage(true);
+    window.scrollTo(0, 0);
+  };
 
   useEffect(() => {
     if (darkMode) {
@@ -31,6 +41,16 @@ export default function App() {
     }
   }, [darkMode]);
 
+  useEffect(() => {
+    const handlePopState = () => {
+      setIsMugsPage(window.location.pathname === '/tazas-personalizadas');
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   return (
     <CartProvider>
       <div
@@ -42,28 +62,35 @@ export default function App() {
         <Navbar
           darkMode={darkMode}
           onToggleTheme={() => setDarkMode((prev) => !prev)}
+          isDetailPage={isMugsPage}
         />
 
         {/* Main Content Sections */}
         <main>
-          {/* Hero Banner & 4 Pillars Strip */}
-          <Hero darkMode={darkMode} />
+          {isMugsPage ? (
+            <MugsPage darkMode={darkMode} />
+          ) : (
+            <>
+              {/* Hero Banner & 4 Pillars Strip */}
+              <Hero darkMode={darkMode} />
 
-          {/* Product Catalog (Expanded with Customizer & Volume Discount Orders) */}
-          <ProductCatalog darkMode={darkMode} />
+              {/* Product Catalog (Expanded with Customizer & Volume Discount Orders) */}
+              <ProductCatalog darkMode={darkMode} onOpenMugsPage={openMugsPage} />
 
-          {/* Envíos a todo el país - Cobertura y Tiempos de Entrega Nacionales */}
-          <ShippingNationwide darkMode={darkMode} />
+              {/* Envíos a todo el país - Cobertura y Tiempos de Entrega Nacionales */}
+              <ShippingNationwide darkMode={darkMode} />
 
-          {/* 5 Audience Segments: Para Quién (Empresas, Regalos, Eventos, Equipos, Colegios) */}
-          <AudienceSegments darkMode={darkMode} />
+              {/* 5 Audience Segments: Para Quién (Empresas, Regalos, Eventos, Equipos, Colegios) */}
+              <AudienceSegments darkMode={darkMode} />
 
-          {/* Frequently Asked Questions (FAQ) Accordion */}
-          <FaqSection darkMode={darkMode} />
+              {/* Frequently Asked Questions (FAQ) Accordion */}
+              <FaqSection darkMode={darkMode} />
+            </>
+          )}
         </main>
 
         {/* Footer & Final Call to Action */}
-        <Footer darkMode={darkMode} />
+        <Footer darkMode={darkMode} isDetailPage={isMugsPage} />
 
         {/* Sticky, Floating WhatsApp Button in the bottom-right corner */}
         <FloatingWhatsAppButton darkMode={darkMode} />

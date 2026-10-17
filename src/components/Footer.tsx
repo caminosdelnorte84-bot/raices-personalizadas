@@ -3,9 +3,12 @@ import { MessageCircle, Phone, Instagram, Facebook, Sparkles } from 'lucide-reac
 
 interface FooterProps {
   darkMode: boolean;
+  isDetailPage?: boolean;
 }
 
-export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
+export const Footer: React.FC<FooterProps> = ({ darkMode, isDetailPage = false }) => {
+  const sectionHref = (section: string) => `${isDetailPage ? '/' : ''}${section}`;
+
   return (
     <>
       {/* Distinctive Closure Hero Banner */}
@@ -132,47 +135,47 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
               </h4>
               <ul className="space-y-2 text-xs">
                 <li>
-                  <a href="#catalogo" className="hover:text-yellow-400 transition-colors text-yellow-300 font-bold">
+                  <a href={sectionHref('#catalogo')} className="hover:text-yellow-400 transition-colors text-yellow-300 font-bold">
                     ★ Cuadros de Aluminio (15x20 &amp; 20x30 cm)
                   </a>
                 </li>
                 <li>
-                  <a href="#catalogo" className="hover:text-yellow-400 transition-colors text-sky-300 font-bold">
+                  <a href={sectionHref('#catalogo')} className="hover:text-yellow-400 transition-colors text-sky-300 font-bold">
                     ★ Sublimación HD &amp; DTF Textil
                   </a>
                 </li>
                 <li>
-                  <a href="#envios" className="hover:text-yellow-400 transition-colors text-emerald-400 font-bold">
+                  <a href={sectionHref('#envios')} className="hover:text-yellow-400 transition-colors text-emerald-400 font-bold">
                     🚚 Envíos a Todo el País
                   </a>
                 </li>
                 <li>
-                  <a href="#catalogo" className="hover:text-yellow-400 transition-colors">
+                  <a href={sectionHref('#catalogo')} className="hover:text-yellow-400 transition-colors">
                     1. Remeras de Algodón 24.1 (Varios Colores)
                   </a>
                 </li>
                 <li>
-                  <a href="#catalogo" className="hover:text-yellow-400 transition-colors">
+                  <a href={sectionHref('#catalogo')} className="hover:text-yellow-400 transition-colors">
                     2. Gorras Trucker y Bordadas
                   </a>
                 </li>
                 <li>
-                  <a href="#catalogo" className="hover:text-yellow-400 transition-colors">
-                    3. Vasos y Termos Térmicos
+                  <a href="/tazas-personalizadas" className="hover:text-yellow-400 transition-colors">
+                    3. Tazas Personalizadas
                   </a>
                 </li>
                 <li>
-                  <a href="#catalogo" className="hover:text-yellow-400 transition-colors">
+                  <a href={sectionHref('#catalogo')} className="hover:text-yellow-400 transition-colors">
                     4. Bolsos y Tulas Deportivas
                   </a>
                 </li>
                 <li>
-                  <a href="#catalogo" className="hover:text-yellow-400 transition-colors">
+                  <a href={sectionHref('#catalogo')} className="hover:text-yellow-400 transition-colors">
                     5. Cuadros de Aluminio (15x20 y 20x30 cm)
                   </a>
                 </li>
                 <li>
-                  <a href="#catalogo" className="hover:text-yellow-400 transition-colors">
+                  <a href={sectionHref('#catalogo')} className="hover:text-yellow-400 transition-colors">
                     6. Souvenirs, Llaveros e Imanes
                   </a>
                 </li>
@@ -188,7 +191,7 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
                 Diseño Personalizado de Alto Impacto
               </span>
               <span>•</span>
-              <a href="#envios" className="hover:text-yellow-400 transition-colors">
+              <a href={sectionHref('#envios')} className="hover:text-yellow-400 transition-colors">
                 Envíos a Todo el País
               </a>
               <span>
