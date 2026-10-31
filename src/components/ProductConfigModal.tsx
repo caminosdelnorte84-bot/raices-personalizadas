@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   X,
   Check,
@@ -62,6 +62,41 @@ export const ProductConfigModal: React.FC<ProductConfigModalProps> = ({
   const [quantity, setQuantity] = useState<number>(1);
   const [customNote, setCustomNote] = useState<string>('');
   const [addedSuccess, setAddedSuccess] = useState<boolean>(false);
+  const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set([1]));
+
+  // Track completed steps based on user selections
+  useEffect(() => {
+    const steps = new Set(completedSteps);
+    if (selectedSize) steps.add(1);
+    if (selectedColor) steps.add(2);
+    if (selectedTechnique) steps.add(3);
+    if (selectedPlacement) steps.add(4);
+    steps.add(5); // Confirm step is always "available"
+    setCompletedSteps(steps);
+  }, [selectedSize, selectedColor, selectedTechnique, selectedPlacement, completedSteps]);
+
+  // Keyboard support: Escape to close
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
+  // Track completed steps based on user selections
+  useEffect(() => {
+    const steps = new Set(completedSteps);
+    if (selectedSize) steps.add(1);
+    if (selectedColor) steps.add(2);
+    if (selectedTechnique) steps.add(3);
+    if (selectedPlacement) steps.add(4);
+    steps.add(5); // Confirm step is always "available"
+    setCompletedSteps(steps);
+  }, [selectedSize, selectedColor, selectedTechnique, selectedPlacement, completedSteps]);
 
   // Calculate volume discount based on quantity
   const discounts: VolumeDiscount[] = product.quoteOnly ? [] : product.volumeDiscounts || [
@@ -174,6 +209,49 @@ export const ProductConfigModal: React.FC<ProductConfigModalProps> = ({
           >
             <X className="w-5 h-5" />
           </button>
+        </div>
+
+        {/* Step Progress Indicator */}
+        <div className={`px-5 sm:px-8 py-3 border-b shrink-0 ${darkMode ? 'border-gray-800 bg-[#0E1522]' : 'border-gray-200 bg-slate-50'}`}>
+          <div className="flex items-center justify-between gap-2">
+            {['Medida', 'Color', 'Técnica', 'Posición', 'Confirmar'].map((step, i) => {
+              const stepNumber = i + 1;
+              const isCompleted = completedSteps.has(stepNumber);
+              const isActive = stepNumber === 3; // Technique step is always active since it's the main selection
+              return (
+                <div key={step} className="flex items-center gap-1.5">
+                  <div className="flex flex-col items-center gap-0.5">
+                    <div
+                      className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-200 ${
+                        isCompleted
+                          ? 'bg-emerald-500 text-white'
+                          : isActive
+                            ? 'bg-yellow-400 text-black'
+                            : darkMode
+                              ? 'border-2 border-gray-700 text-gray-500'
+                              : 'border-2 border-gray-200 text-gray-400'
+                      }`}
+                    >
+                      {isCompleted ? <Check className="w-3.5 h-3.5" /> : stepNumber}
+                    </div>
+                    <span className={`text-[9px] font-medium hidden sm:block ${
+                      isCompleted ? 'text-emerald-400' : isActive ? 'text-yellow-400 font-bold' : darkMode ? 'text-gray-500' : 'text-gray-400'
+                    }`}>{step}</span>
+                  </div>
+                  {i < 4 && (
+                    <div className={`flex-1 h-0.5 rounded transition-colors duration-200 ${
+                      isCompleted
+                        ? 'bg-emerald-500/50'
+                        : darkMode ? 'bg-gray-800' : 'bg-gray-200'
+                    }`} />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <p className={`text-[10px] mt-1.5 text-center ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>
+            Te acompañamos en cada paso — ya llevás <span className="text-yellow-400 font-bold">{completedSteps.size}</span> de 5
+          </p>
         </div>
 
         {/* Modal Body - Scrollable */}
@@ -378,13 +456,32 @@ export const ProductConfigModal: React.FC<ProductConfigModalProps> = ({
             </div>
 
             {/* 3. Technique Selector */}
-            <div className="space-y-2">
+            <div className="space-y-4 pt-2 border-t border-gray-700/50">
               <div className="flex items-center justify-between text-xs">
                 <span className="font-extrabold uppercase tracking-wider flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-sky-400" />
                   {product.id === 'impresion-3d' ? '3. Proceso:' : '3. Técnica de Personalización:'}
                 </span>
                 <span className="text-sky-400 font-bold">{selectedTechnique.name}</span>
+              </div>
+
+              {/* Helper: recommendation per product */}
+              <p className="text-[10px] text-gray-400 leading-relaxed">
+                {product.id === 'camisetas'
+                  ? '¿Cuál elijo? DTF funciona en cualquier color. Sublimación es ideal para remeras blancas con poliéster.'
+                  : product.id === 'termos'
+                    ? 'La sublimación es la técnica standard para tazas y termos cerámicos.'
+                    : product.id === 'gorras'
+                      ? 'Bordado 3D para relieve premium. DTF curvo para diseños completos.'
+                      : 'Seleccioná la técnica según el efecto deseado.'}
+              </p>
+
+              {/* Progress indicator: shows step position in 5-step flow */}
+              <div className="flex items-center gap-2 text-[10px] text-gray-400 mb-3">
+                <span className="flex-1 border-b-2 border-transparent bg-yellow-400 dark:border-gray-800 dark:bg-transparent transition-colors duration-200"
+                  style={{ width: `20%` }}
+                />
+                <span className="text-gray-400/60">Paso 3 de 5</span>
               </div>
 
               <div className="space-y-2">
@@ -422,8 +519,8 @@ export const ProductConfigModal: React.FC<ProductConfigModalProps> = ({
                           </span>
                         </div>
                         <p
-                          className={`text-[11px] leading-tight ${
-                            darkMode ? 'text-gray-400' : 'text-gray-500'
+                          className={`text-xs leading-snug ${
+                            darkMode ? 'text-gray-300' : 'text-gray-700'
                           }`}
                         >
                           {tech.desc}
@@ -436,7 +533,7 @@ export const ProductConfigModal: React.FC<ProductConfigModalProps> = ({
                         </span>
                       ) : (
                         <span className="text-[10px] font-mono text-gray-400 shrink-0">
-                          Incluida
+                          Sin costo adicional
                         </span>
                       )}
                     </div>

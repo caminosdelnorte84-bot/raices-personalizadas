@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-31T13:52:00Z",
+  "title": "Design System: Raíces Personalizaciones",
+  "extensions": {
+    "colorMeta": {
+      "brand-dark": {
+        "role": "neutral",
+        "displayName": "Deep Night Ground",
+        "canonical": "oklch(0.04 0.005 240)",
+        "tonalRamp": ["#080C10", "#0E1522", "#111722", "#161F2E", "#1E293B", "#334155", "#64748B", "#94A3B8"]
+      },
+      "brand-yellow": {
+        "role": "primary",
+        "displayName": "Maker's Gold",
+        "canonical": "oklch(0.88 0.21 92)",
+        "tonalRamp": ["#EAB308", "#FACC15", "#FDE68A", "#FEF08A", "#FECACA", "#FCA5A5", "#F87171", "#EF4444"]
+      },
+      "brand-cyan": {
+        "role": "secondary",
+        "displayName": "Precision Blue",
+        "canonical": "oklch(0.65 0.18 210)",
+        "tonalRamp": ["#0369A1", "#0284C7", "#0EA5E9", "#38BDF8", "#7DD3FC", "#BAE6FD", "#E0F2FE", "#F0F9FF"]
+      },
+      "brand-pink": {
+        "role": "tertiary",
+        "displayName": "Expressive Magenta",
+        "canonical": "oklch(0.65 0.22 340)",
+        "tonalRamp": ["#9D174D", "#BE185D", "#EC4899", "#F472B6", "#F9A8D4", "#FBCFE8", "#FFE4F6", "#FFF1F9"]
+      },
+      "brand-whatsapp": {
+        "role": "neutral",
+        "displayName": "Connect Green",
+        "canonical": "oklch(0.72 0.18 150)",
+        "tonalRamp": ["#128C7E", "#25D366", "#95ECB0", "#D9FDD3", "#E8F5E9", "#C8E6C9", "#A5D6A7", "#81C784"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Permanent Marker",
+        "purpose": "Hero headlines and impactful statements"
+      },
+      "script": {
+        "displayName": "Caveat",
+        "purpose": "Personality accents — brand name modifier, decorative labels"
+      },
+      "heading": {
+        "displayName": "System Bold",
+        "purpose": "Section titles, category headers — maximum visual authority"
+      },
+      "body": {
+        "displayName": "System UI",
+        "purpose": "Primary reading text, descriptions, UI copy"
+      },
+      "label": {
+        "displayName": "System Mono-Uppercase",
+        "purpose": "Navigation, badges, technical specs, prices"
+      }
+    },
+    "shadows": [
+      {
+        "name": "glow-yellow",
+        "value": "0 0 25px -4px rgba(250, 204, 21, 0.45)",
+        "purpose": "Primary CTA hover and active state glow"
+      },
+      {
+        "name": "glow-cyan",
+        "value": "0 0 25px -4px rgba(14, 165, 233, 0.4)",
+        "purpose": "Secondary accent hover state"
+      },
+      {
+        "name": "glow-pink",
+        "value": "0 0 25px -4px rgba(236, 72, 153, 0.45)",
+        "purpose": "Tertiary accent hover state"
+      },
+      {
+        "name": "elevation-subtle",
+        "value": "0 1px 2px rgba(0, 0, 0, 0.15)",
+        "purpose": "Light mode card lift, navbar shadow"
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default transition for all interactive states"
+      },
+      {
+        "name": "lift-speed",
+        "value": "200ms",
+        "purpose": "Hover translate and glow transitions"
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA — yellow fill, black text, uppercase tracking",
+      "html": "<button class=\"ds-btn-primary\">Cotizar Ahora</button>",
+      "css": ".ds-btn-primary { background: #FACC15; color: #000; padding: 14px 32px; border-radius: 12px; font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; border: none; cursor: pointer; transition: background 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1), box-shadow 200ms cubic-bezier(0.4,0,0.2,1); box-shadow: 0 0 0 0 transparent; }\n.ds-btn-primary:hover { background: #EAB308; transform: translateY(-2px); box-shadow: 0 0 25px -4px rgba(250,204,21,0.45); }\n.ds-btn-primary:active { transform: translateY(0); }\n.ds-btn-primary:focus-visible { outline: 2px solid #FACC15; outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outlined variant — colored border, transparent fill",
+      "html": "<button class=\"ds-btn-secondary\">Ver Detalles</button>",
+      "css": ".ds-btn-secondary { background: transparent; color: #0EA5E9; padding: 14px 32px; border-radius: 12px; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; border: 1.5px solid rgba(14,165,233,0.5); cursor: pointer; transition: background 200ms cubic-bezier(0.4,0,0.2,1), border-color 200ms cubic-bezier(0.4,0,0.2,1); }\n.ds-btn-secondary:hover { background: rgba(14,165,233,0.1); border-color: #0EA5E9; }\n.ds-btn-secondary:focus-visible { outline: 2px solid #0EA5E9; outline-offset: 3px; }"
+    },
+    {
+      "name": "Product Card",
+      "kind": "card",
+      "refersTo": "card-product",
+      "description": "Dark mode product card with image, title, price",
+      "html": "<div class=\"ds-card-product\"><div class=\"ds-card-image\">📷</div><h3 class=\"ds-card-title\">Remera Algodón 24.1</h3><span class=\"ds-card-price\">$14.500</span></div>",
+      "css": ".ds-card-product { background: #161F2E; border: 1px solid #1E293B; border-radius: 16px; overflow: hidden; transition: transform 200ms cubic-bezier(0.4,0,0.2,1), border-color 200ms cubic-bezier(0.4,0,0.2,1); }\n.ds-card-product:hover { transform: translateY(-4px); border-color: rgba(250,204,21,0.3); }\n.ds-card-image { aspect-ratio: 4/3; background: #111722; display: flex; align-items: center; justify-content: center; font-size: 2rem; }\n.ds-card-title { padding: 16px 16px 4px; font-size: 1rem; font-weight: 800; color: #F1F5F9; }\n.ds-card-price { padding: 4px 16px 16px; font-size: 0.875rem; font-weight: 700; color: #FACC15; font-family: monospace; }"
+    },
+    {
+      "name": "Badge Chip",
+      "kind": "chip",
+      "refersTo": "chip-badge",
+      "description": "Pill-shaped tag for techniques, features, specs",
+      "html": "<span class=\"ds-badge\">Sublimación HD</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 9999px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; background: rgba(250,204,21,0.1); color: #FACC15; border: 1px solid rgba(250,204,21,0.3); }"
+    },
+    {
+      "name": "Announcement Bar",
+      "kind": "nav",
+      "refersTo": "announcement-bar",
+      "description": "Top gradient bar with shipping and contact info",
+      "html": "<div class=\"ds-announcement\">Envíos a todo el país por Vía Cargo • Seguro incluido</div>",
+      "css": ".ds-announcement { background: linear-gradient(to right, #0EA5E9, #EC4899, #FACC15); padding: 6px 16px; text-align: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #000; }"
+    },
+    {
+      "name": "Sticky Navbar",
+      "kind": "nav",
+      "refersTo": "navbar",
+      "description": "Sticky navigation with logo, links, cart",
+      "html": "<nav class=\"ds-navbar\"><div class=\"ds-logo\">RAÍCES</div><ul class=\"ds-nav-links\"><li><a href=\"#\">Catálogo</a></li><li><a href=\"#\">Contacto</a></li></ul><button class=\"ds-cart-btn\">🛒</button></nav>",
+      "css": ".ds-navbar { position: sticky; top: 0; z-index: 50; background: rgba(10,15,23,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(148,163,184,0.15); padding: 0 24px; height: 80px; display: flex; align-items: center; justify-content: space-between; }\n.ds-logo { font-size: 1.5rem; font-weight: 900; color: #F1F5F9; }\n.ds-nav-links { display: flex; gap: 32px; list-style: none; }\n.ds-nav-links a { color: #94A3B8; font-size: 14px; font-weight: 600; text-decoration: none; transition: color 200ms; }\n.ds-nav-links a:hover { color: #FACC15; }\n.ds-cart-btn { background: none; border: none; font-size: 1.25rem; cursor: pointer; padding: 8px; border-radius: 8px; transition: background 200ms; }\n.ds-cart-btn:hover { background: rgba(250,204,21,0.1); }"
+    },
+    {
+      "name": "Price Display",
+      "kind": "custom",
+      "refersTo": "price-display",
+      "description": "Monospace price with yellow accent",
+      "html": "<div class=\"ds-price\"><span class=\"ds-currency\">$</span><span class=\"ds-amount\">14.500</span></div>",
+      "css": ".ds-price { display: inline-flex; align-items: baseline; gap: 2px; font-family: monospace; }\n.ds-currency { font-size: 0.875rem; font-weight: 700; color: #FACC15; }\n.ds-amount { font-size: 1.25rem; font-weight: 900; color: #FACC15; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Maker's Workshop",
+    "overview": "Raíces Personalizaciones speaks the language of craft and purpose. Every surface feels like stepping into a well-organized atelier — where materials are chosen intentionally, tools are at hand, and each piece carries meaning. The visual identity balances raw energy (bold gradients, punchy typography) with considered sophistication (clean grids, precise spacing, restrained color application).",
+    "keyCharacteristics": [
+      "Bold, uppercase display typography for impact",
+      "Vibrant gradient accents for key moments",
+      "Dark surfaces with layered elevation",
+      "Script fonts as personality markers",
+      "Generous spacing for visual breathing room"
+    ],
+    "rules": [
+      {
+        "name": "The Yellow Rule",
+        "body": "Brand Yellow appears on ≤15% of any given screen. Its rarity creates impact — every yellow element earns attention.",
+        "section": "colors"
+      },
+      {
+        "name": "The Gradient Gradient Rule",
+        "body": "The cyan → pink → yellow gradient appears only in announcement bars and hero decorative elements. It signals energy in motion, never readable text backgrounds.",
+        "section": "colors"
+      },
+      {
+        "name": "The Script Rule",
+        "body": "Permanent Marker and Caveat appear on ≤3 elements per screen. They are signature moments, not working type.",
+        "section": "typography"
+      },
+      {
+        "name": "The Glow Rule",
+        "body": "Colored glows appear only on hover/focus states, never at rest. They signal interactivity, not decoration.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do let yellow carry the primary action",
+      "Do use tonal layering for depth rather than heavy drop shadows",
+      "Do keep script fonts to 2-3 elements per screen maximum",
+      "Do maintain the dark-first default",
+      "Do pair bold headings with generous breathing room"
+    ],
+    "donts": [
+      "Don't use the gradient as a text background or button fill",
+      "Don't apply colored glows to elements at rest",
+      "Don't mix Permanent Marker and Caveat in the same visual area",
+      "Don't use more than one accent color per component group",
+      "Don't set body text smaller than 0.875rem"
+    ]
+  }
+}

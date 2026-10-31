@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-31T14:20:00Z",
+  "title": "Onboarding: Raíces Personalizaciones Catalog",
+  "mode": "Persuade",
+  "targetAudience": {
+    "primary": "Clientes primerizos que desean productos personalizados para regalos, eventos o branding empresarial",
+    "secondary": "Clientes recurrentes que regresan para nuevos pedidos",
+    "experienceLevel": "Principiante a intermedio — conocen el concepto de regalos personalizados pero no la técnica"
+  },
+  "ahaMoment": "El usuario configura su primer producto (elige tipo, color, técnica) y ve el precio con descuentos por volumen claros, entendiendo la diferencia entre DTF, sublimación y vinilo.",
+  "timeToValue": "Mínimo 2 minutos para configurar el primer producto y ver el precio.",
+  "skipOption": true,
+  "steps": [
+    {
+      "id": "welcome",
+      "title": "Bienvenidx a Raíces Personalizaciones",
+      "description": "Un proyecto familiar que combina impresión 3D, sublimación, DTF y bordado para llevar tus ideas a la vida. Cada pieza lleva un mensaje, no solo un diseño.",
+      "valueProposition": "Productos únicos con significado — acompañamos tu intención, desde un regalo pequeño hasta una dotación completa.",
+      "ctaPrimary": "Empezar a configurar",
+      "ctaSecondary": "Ver catálogo",
+      "shouldSkip": true,
+      "skipLabel": "Saltarme por ahora",
+      "estimatedTime": "2 minutos"
+    },
+    {
+      "id": "productDiscovery",
+      "title": "Conocé nuestros productos",
+      "description": "Elegí el tipo de producto que necesitás. Tenemos 9 categorías, desde remeras hasta placas de aluminio, rompecabezas y gorras.",
+      "keyPoints": [
+        "Cada producto tiene técnicas únicas: DTF (versátil), Sublimación (fotográfica), Vinilo (definido), Bordado 3D (relieve)",
+        "No hay mínimo de pedido — empezamos con 1 unidad",
+        "Descuentos por volumen: 12% off desde 6 unids, 22% off desde 24, 32% off desde 50"
+      ],
+      "interaction": "Scroll through product cards or use the selector below",
+      "ctaPrimary": "Elegí un producto",
+      "shouldSkip": true,
+      "skipLabel": "Saltar",
+      "estimatedTime": "3 minutos"
+    },
+    {
+      "id": "techniqueIntro",
+      "title": "Elegí tu técnica de personalización",
+      "description": "Cada producto se personaliza de manera diferente. Te ayudamos a elegir la mejor para tu diseño.",
+      "techniqueRecommendation": "Para remeras: DTF si tu diseño tiene muchos colores o es fotográfico. Sublimación si la remera es blanca con poliéster.",
+      "techniqueOptions": [
+        {"name": "DTF textil HD", "description": "Colores intensos, degradados, fotografía. Toque suave. Ideal para cualquier color de remera."},
+        {"name": "Sublimación digital HD", "description": "Integra la tinta a la tela. Tacto cero. Ideal para blancas con poliéster."},
+        {"name": "Vinilo textil", "description": "Efecto mate. Perfecto para números, tipografías y logos vectoriales definidos."},
+        {"name": "Bordado computarizado 3D", "description": "Alto relieve premium. Gorras, chaquetas, polos."}
+      ],
+      "interaction": "Select a technique to see its description and costo adicional",
+      "ctaPrimary": "Continué con la configuración",
+      "shouldSkip": true,
+      "skipLabel": "Saltar técnica",
+      "estimatedTime": "3 minutos"
+    },
+    {
+      "id": "firstConfig",
+      "title": "Configurá tu primer producto",
+      "description": "Elegí color, talle/técnica y posición del estampado. Vemos el precio al instante con descuentos por volumen automáticos.",
+      "formFields": [
+        {"label": "Color de prenda", "type": "colorSelector", "required": true},
+        {"label": "Talle / Formato", "type": "sizeSelector", "required": true},
+        {"label": "Técnica de personalización", "type": "techniqueSelector", "required": true}
+      ],
+      "progressiveDisclosure": true,
+      "showVolumeDiscounts": true,
+      "ctaPrimary": "Ver precio y cotizar por WhatsApp",
+      "ctaSecondary": "Continué configurando",
+      "shouldSkip": false,
+      "estimatedTime": "3 minutos"
+    },
+    {
+      "id": "ahaMoment",
+      "title": "¡Tu precio está listo!",
+      "description": "Ves el precio final con descuento aplicado, las opciones de envío a todo el país y la posibilidad de confirmar el pedido por WhatsApp.",
+      "keyTakeaways": [
+        "Precio claro con descuento por volumen",
+        "Envíos a todo el país por Vía Cargo (seguro)",
+        "WhatsApp: +54 9 221 626 8594 para confirmar",
+        "No hay mínimo de pedido — empezamos desde 1 unidad"
+      ],
+      "celebration": "¡Parte! Ya tenés tu primera cotización lista.",
+      "nextSteps": [
+        "Modificá la configuración si querés otro talle o color",
+        "Agregá más unidades para mejores descuentos",
+        "Contactá por WhatsApp para confirmar y cerrar el pedido"
+      ],
+      "ctaPrimary": "Hacer otro pedido",
+      "ctaSecondary": "Volver al catálogo",
+      "shouldSkip": false,
+      "persistChoice": ["selectedProduct", "selectedTechnique", "selectedColor", "selectedSize", "selectedQuantity"],
+      "estimatedTime": "1 minuto"
+    }
+  ],
+  "emptyStates": {
+    "techniqueSelector": {
+      "title": "Aún no elegiste una técnica",
+      "description": "Elegí una técnica de personalización para ver cómo se vería tu diseño y el precio.",
+      "cta": "Elegir técnica"
+    },
+    "colorSelector": {
+      "title": "Elegí un color",
+      "description": "Los colores disponibles varían según el producto y la técnica seleccionada.",
+      "cta": "Ver colores"
+    }
+  },
+  "personas": [
+    {
+      "name": "Jordan (Primerizo)",
+      "profile": "Nunca hizo un pedido de personalización antes. Sabe que quiere un regalo pero no sabe por dónde empezar.",
+      "behaviors": [
+        "Lee todas las explicaciones cuidadosamente",
+        "Hesita antes de hacer clic en anything unfamiliar",
+        "Busca ayuda o soporte constantemente",
+        "Se confunde con el jargon técnico"
+      ],
+      "redFlags": [
+        "No visible ayuda o guía en el flujo",
+        "Jargon técnico sin explicación",
+        "Sin confirmación de que la acción succeeded"
+      ]
+    },
+    {
+      "name": "Alex (Power User)",
+      "profile": "Ya hizo pedidos antes pero valora eficiencia y atajos.",
+      "behaviors": [
+        "Saltea onboarding si ya conoce el producto",
+        "Busca atajos de teclado inmediatamente",
+        "Intenta bulk-select o configuraciones rápidas",
+        "Se frustra con pasos innecesarios"
+      ],
+      "redFlags": [
+        "Onboarding forzado que no se puede saltar",
+        "Sin atajos de teclado",
+        "Animaciones lentas que no se pueden saltar"
+      ]
+    }
+  ],
+  "verifyQualityMetrics": [
+    "Tiempo total de onboarding: < 10 minutos",
+    "Comprensión del usuario: podés explicar la diferencia DTF vs sublimación?",
+    "Acción después: ¿Completaste la configuración y viste el precio?",
+    "Rate de skip: < 30% si el onboarding es valioso",
+    "Tiempo hasta el 'aha moment': < 4 minutos"
+  ]
+}
