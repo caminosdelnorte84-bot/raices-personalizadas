@@ -16,6 +16,7 @@ import { Hechos3DPage } from './components/Hechos3DPage';
 import { ShippingNationwide } from './components/ShippingNationwide';
 import { AudienceSegments } from './components/AudienceSegments';
 import { FaqSection } from './components/FaqSection';
+import { TrustedBy } from './components/TrustedBy';
 import { Footer } from './components/Footer';
 import { FloatingWhatsAppButton } from './components/FloatingWhatsAppButton';
 import { CartDrawer } from './components/CartDrawer';
