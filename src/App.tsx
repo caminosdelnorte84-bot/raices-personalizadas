@@ -12,6 +12,7 @@ import { ShirtsPage } from './components/ShirtsPage';
 import { SizeChartsPage } from './components/SizeChartsPage';
 import { AluminumPlatesPage } from './components/AluminumPlatesPage';
 import { CapsPage } from './components/CapsPage';
+import { Hechos3DPage } from './components/Hechos3DPage';
 import { ShippingNationwide } from './components/ShippingNationwide';
 import { AudienceSegments } from './components/AudienceSegments';
 import { FaqSection } from './components/FaqSection';
@@ -20,7 +21,7 @@ import { FloatingWhatsAppButton } from './components/FloatingWhatsAppButton';
 import { CartDrawer } from './components/CartDrawer';
 import { CartProvider } from './context/CartContext';
 
-type DetailPage = 'mugs' | 'shirts' | 'sizeCharts' | 'aluminumPlates' | 'caps' | null;
+type DetailPage = 'mugs' | 'shirts' | 'sizeCharts' | 'aluminumPlates' | 'caps' | 'hechos3d' | null;
 
 const getDetailPage = (): DetailPage => {
   const pathname = window.location.pathname.replace(/\/+$/, '') || '/';
@@ -29,6 +30,7 @@ const getDetailPage = (): DetailPage => {
   if (pathname === '/tabla-de-talles') return 'sizeCharts';
   if (pathname === '/placas-aluminio-personalizadas') return 'aluminumPlates';
   if (pathname === '/gorras-personalizadas') return 'caps';
+  if (pathname === '/hechos-3d') return 'hechos3d';
   return null;
 };
 
@@ -44,6 +46,7 @@ export default function App() {
       sizeCharts: '/tabla-de-talles',
       aluminumPlates: '/placas-aluminio-personalizadas',
       caps: '/gorras-personalizadas',
+      hechos3d: '/hechos-3d',
     };
     const path = paths[page];
     window.history.pushState({}, '', path);
@@ -84,6 +87,8 @@ export default function App() {
       document.title = 'Placas de Aluminio Sublimable | Raíces Personalizaciones';
     } else if (detailPage === 'caps') {
       document.title = 'Gorras Personalizadas | Raíces Personalizaciones';
+    } else if (detailPage === 'hechos3d') {
+      document.title = 'Hecho en 3D | Raíces Personalizaciones';
     } else {
       document.title =
         'Raíces Personalizaciones | Crea • Imprime • Impacta | Catálogo de Productos Personalizados';
@@ -116,6 +121,8 @@ export default function App() {
             <AluminumPlatesPage darkMode={darkMode} />
           ) : detailPage === 'caps' ? (
             <CapsPage darkMode={darkMode} />
+          ) : detailPage === 'hechos3d' ? (
+            <Hechos3DPage darkMode={darkMode} />
           ) : (
             <>
               {/* Hero Banner & 4 Pillars Strip */}
@@ -128,6 +135,7 @@ export default function App() {
                 onOpenShirtsPage={() => openDetailPage('shirts')}
                 onOpenAluminumPlatesPage={() => openDetailPage('aluminumPlates')}
                 onOpenCapsPage={() => openDetailPage('caps')}
+                onOpenHechos3D={() => openDetailPage('hechos3d')}
               />
 
               {/* Envíos a todo el país - Cobertura y Tiempos de Entrega Nacionales */}
@@ -138,6 +146,9 @@ export default function App() {
 
               {/* Frequently Asked Questions (FAQ) Accordion */}
               <FaqSection darkMode={darkMode} />
+
+              {/* Who trusts us - Testimonials */}
+              <TrustedBy darkMode={darkMode} />
             </>
           )}
         </main>

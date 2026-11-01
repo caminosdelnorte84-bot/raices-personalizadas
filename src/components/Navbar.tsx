@@ -17,20 +17,51 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { openCart, totalItems } = useCart();
 
-  const navLinks = [
-    { label: 'Catálogo', href: `${isDetailPage ? '/' : ''}#catalogo` },
-    { label: 'Envíos Nacionales', href: `${isDetailPage ? '/' : ''}#envios` },
+  interface NavLink {
+    label: string;
+    href: string;
+    target?: string;
+    rel?: string;
+  }
+
+  const navLinks: NavLink[] = [
+    { label: 'Tazas', href: '/tazas-personalizadas' },
+    { label: 'Remeras', href: '/remeras-personalizadas' },
+    { label: 'Gorras', href: '/gorras-personalizadas' },
+    { label: 'Placas', href: '/placas-aluminio-personalizadas' },
+  ];
+  const moreNavLinks: NavLink[] = [
+    { label: 'Tabla de Talles', href: '/tabla-de-talles' },
+    { label: 'Envíos', href: `${isDetailPage ? '/' : ''}#envios` },
     { label: 'Ideal Para', href: `${isDetailPage ? '/' : ''}#para-quien` },
+    { label: 'Confían en Nosotros', href: `${isDetailPage ? '/' : ''}#confian-en-nosotros` },
     { label: 'Preguntas Frecuentes', href: `${isDetailPage ? '/' : ''}#faq` },
     { label: 'Contacto', href: `${isDetailPage ? '/' : ''}#contacto` },
-    { label: 'Talles', href: '/tabla-de-talles' },
-    { label: 'Placas', href: '/placas-aluminio-personalizadas' },
-    { label: 'Gorras', href: '/gorras-personalizadas' },
   ];
-  const primaryNavLinks = navLinks.filter((link) =>
-    ['Catálogo', 'Envíos Nacionales', 'Preguntas Frecuentes', 'Contacto'].includes(link.label)
-  );
-  const moreNavLinks = navLinks.filter((link) => !primaryNavLinks.includes(link));
+
+  const madeIn3dCategories = [
+    { name: 'Porta Sahumerios', count: 2, stock: 'available' },
+    { name: 'Macetas', count: 2, stock: 'available' },
+    { name: 'Sensoriales', count: 1, stock: 'available' },
+    { name: 'Juegos Didácticos', count: 1, stock: 'available' },
+    { name: 'Figuras para Colorear', count: 1, stock: 'limited' },
+    { name: 'Termoformados', count: 1, stock: 'made-to-order' },
+  ];
+
+  const productsCategories = [
+    { name: 'Tazas', count: 3, stock: 'available', href: '/tazas-personalizadas', color: '#0EA5E9' },
+    { name: 'Remeras', count: 3, stock: 'available', href: '/remeras-personalizadas', color: '#FACC15' },
+    { name: 'Gorras', count: 3, stock: 'available', href: '/gorras-personalizadas', color: '#EC4899' },
+    { name: 'Placas', count: 1, stock: 'available', href: '/placas-aluminio-personalizadas', color: '#FACC15' },
+    { name: 'Bolsos & Morrales', count: 3, stock: 'available', href: `${isDetailPage ? '/' : ''}#catalogo`, color: '#0EA5E9' },
+    { name: 'Souvenirs', count: 3, stock: 'available', href: `${isDetailPage ? '/' : ''}#catalogo`, color: '#EC4899' },
+    { name: 'Llaveros', count: 2, stock: 'available', href: `${isDetailPage ? '/' : ''}#catalogo`, color: '#A855F7' },
+    { name: 'Imanes & Pins', count: 2, stock: 'available', href: `${isDetailPage ? '/' : ''}#catalogo`, color: '#EC4899' },
+    { name: 'Rompecabezas', count: 1, stock: 'available', href: `${isDetailPage ? '/' : ''}#catalogo`, color: '#FACC15' },
+    { name: 'Neoprene', count: 1, stock: 'made-to-order', href: `${isDetailPage ? '/' : ''}#catalogo`, color: '#0EA5E9' },
+    { name: 'Velas & Aromas', count: 2, stock: 'available', href: `${isDetailPage ? '/' : ''}#catalogo`, color: '#EC4899' },
+    { name: 'Porta Retratos', count: 2, stock: 'available', href: `${isDetailPage ? '/' : ''}#catalogo`, color: '#FACC15' },
+  ];
 
   return (
     <>
@@ -60,80 +91,178 @@ export const Navbar: React.FC<NavbarProps> = ({
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           {/* Logo Branding */}
-          <a href={isDetailPage ? '/' : '#'} className="flex items-center gap-2 sm:gap-3 group">
+          <a href={isDetailPage ? '/' : '#'} className="flex items-center gap-2.5 group">
             <div className="relative">
-              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-tr from-[#FACC15] via-[#EC4899] to-[#0EA5E9] p-0.5 flex items-center justify-center shadow-glow-yellow group-hover:scale-105 transition-transform duration-200">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-[#FACC15] via-[#EC4899] to-[#0EA5E9] p-0.5 flex items-center justify-center shadow-glow-yellow group-hover:scale-105 transition-transform duration-200">
                 <div
                   className={`w-full h-full rounded-[10px] flex items-center justify-center ${
                     darkMode ? 'bg-[#0E1522]' : 'bg-slate-900'
                   }`}
                 >
-                  <Printer className="w-5 h-5 sm:w-6 sm:h-6 text-[#FACC15] group-hover:text-white transition-colors" />
+                  <Printer className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#FACC15] group-hover:text-white transition-colors" />
                 </div>
               </div>
             </div>
-            <div className="flex flex-col">
-              <span className="text-base min-[400px]:text-lg sm:text-2xl font-black tracking-tight leading-none">
-                RAÍCES{' '}
-                <span className="font-script text-[#FACC15] text-base min-[400px]:text-lg sm:text-3xl tracking-normal inline-block transform -rotate-2">
-                  Personalizaciones
-                </span>
+            <div className="flex flex-col leading-none">
+              <span className={`text-lg sm:text-xl font-black tracking-tight ${
+                darkMode ? 'text-white' : 'text-gray-900'
+              }`}>
+                Raíces
               </span>
-              <span
-                className={`text-[9px] sm:text-[10px] tracking-widest uppercase font-semibold mt-1 flex items-center gap-1.5 ${
-                  darkMode ? 'text-gray-400' : 'text-gray-500'
-                }`}
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0EA5E9] inline-block" /> Crea
-                <span className="w-1.5 h-1.5 rounded-full bg-[#EC4899] inline-block" /> Imprime
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15] inline-block" /> Impacta
+              <span className={`text-[10px] font-semibold tracking-wide -mt-0.5 ${
+                darkMode ? 'text-[#FACC15]' : 'text-yellow-600'
+              }`}>
+                Creaciones con propósito
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-4 text-xs font-semibold">
-            {primaryNavLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className={`whitespace-nowrap rounded-sm transition-colors duration-150 hover:text-[#FACC15] ${
-                  darkMode ? 'text-gray-300' : 'text-gray-700'
+          <nav className="hidden xl:flex items-center gap-6 text-sm font-bold uppercase tracking-wide">
+            {/* Productos Mega Dropdown */}
+            <div className="relative group">
+              <button
+                className={`flex items-center gap-1 transition-colors duration-150 ${
+                  darkMode ? 'text-gray-300 hover:text-[#FACC15]' : 'text-gray-600 hover:text-yellow-600'
                 }`}
               >
-                {link.label}
-              </a>
-            ))}
-            <details className="group relative">
-              <summary
-                className={`flex cursor-pointer list-none items-center gap-1 whitespace-nowrap rounded-sm transition-colors hover:text-[#FACC15] ${
-                  darkMode ? 'text-gray-300' : 'text-gray-700'
-                }`}
-              >
-                Más
-                <ChevronDown className="h-3.5 w-3.5 transition-transform group-open:rotate-180" />
-              </summary>
-              <div
-                className={`absolute right-0 top-full z-50 mt-3 w-52 rounded-xl border p-2 shadow-xl ${
-                  darkMode
-                    ? 'border-gray-700 bg-[#101722] text-gray-200'
-                    : 'border-gray-200 bg-white text-gray-800'
-                }`}
-              >
-                {moreNavLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={(event) => {
-                      event.currentTarget.closest('details')?.removeAttribute('open');
-                    }}
-                    className="block rounded-lg px-3 py-2.5 transition-colors hover:bg-yellow-400/10 hover:text-yellow-400"
-                  >
-                    {link.label}
-                  </a>
-                ))}
+                Productos
+                <ChevronDown className="h-3 w-3 transition-transform group-hover:rotate-180" />
+              </button>
+
+              {/* Products Mega Menu Panel */}
+              <div className={`absolute left-0 top-full z-50 mt-3 w-[520px] rounded-2xl border shadow-2xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 ${
+                darkMode
+                  ? 'border-gray-700 bg-[#101722] text-gray-200'
+                  : 'border-gray-200 bg-white text-gray-800'
+              }`}>
+                <div className="p-4">
+                  <h3 className={`text-sm font-black uppercase tracking-wider mb-3 ${
+                    darkMode ? 'text-[#FACC15]' : 'text-yellow-600'
+                  }`}>
+                    Categorías
+                  </h3>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    {productsCategories.map((cat) => (
+                      <a
+                        key={cat.name}
+                        href={cat.href}
+                        className={`flex items-center gap-2 px-3 py-2 rounded-xl transition-colors ${
+                          darkMode ? 'hover:bg-gray-800' : 'hover:bg-gray-50'
+                        }`}
+                      >
+                        <span
+                          className="w-2 h-2 rounded-full shrink-0"
+                          style={{ backgroundColor: cat.color }}
+                        />
+                        <span className="text-sm font-semibold">{cat.name}</span>
+                      </a>
+                    ))}
+                  </div>
+
+                  <div className={`mt-3 pt-3 border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
+                    <a
+                      href="/#catalogo"
+                      className={`block w-full text-center py-2.5 rounded-xl text-sm font-black uppercase tracking-wider ${
+                        darkMode
+                          ? 'bg-[#FACC15] text-black hover:bg-yellow-300'
+                          : 'bg-yellow-400 text-black hover:bg-yellow-500'
+                      }`}
+                    >
+                      Ver todo el catálogo
+                    </a>
+                  </div>
+                </div>
+
+                <div className={`px-4 py-3 text-center border-t ${darkMode ? 'border-gray-800 bg-[#0E1522]' : 'border-gray-100 bg-gray-50'}`}>
+                  <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                    ¿No está lo que buscás?{' '}
+                    <a
+                      href="https://wa.me/5492216268594?text=Hola!%20Quiero%20consultar%20por%20un%20producto%20personalizado"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#25D366] font-bold hover:underline"
+                    >
+                      Pedímelo por WhatsApp ↗
+                    </a>
+                  </p>
+                </div>
               </div>
-            </details>
+            </div>
+
+            {/* Hecho en 3D Mega Dropdown */}
+            <div className="relative group">
+              <button
+                className={`flex items-center gap-1 transition-colors duration-150 ${
+                  darkMode ? 'text-gray-300 hover:text-[#FACC15]' : 'text-gray-600 hover:text-yellow-600'
+                }`}
+              >
+                Hecho en 3D
+                <ChevronDown className="h-3 w-3 transition-transform group-hover:rotate-180" />
+              </button>
+
+              {/* Mega Menu Panel */}
+              <div className={`absolute left-0 top-full z-50 mt-3 w-[520px] rounded-2xl border shadow-2xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 ${
+                darkMode
+                  ? 'border-gray-700 bg-[#101722] text-gray-200'
+                  : 'border-gray-200 bg-white text-gray-800'
+              }`}>
+                <div className="p-4">
+                  <h3 className={`text-sm font-black uppercase tracking-wider mb-3 ${
+                    darkMode ? 'text-[#FACC15]' : 'text-yellow-600'
+                  }`}>
+                    Categorías 3D
+                  </h3>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    {madeIn3dCategories.map((cat) => (
+                      <a
+                        key={cat.name}
+                        href="/hechos-3d"
+                        className={`flex items-center gap-2 px-3 py-2 rounded-xl transition-colors ${
+                          darkMode ? 'hover:bg-gray-800' : 'hover:bg-gray-50'
+                        }`}
+                      >
+                        <span
+                          className="w-2 h-2 rounded-full shrink-0"
+                          style={{ backgroundColor: cat.stock === 'available' ? '#FACC15' : cat.stock === 'limited' ? '#EC4899' : '#0EA5E9' }}
+                        />
+                        <span className="text-sm font-semibold">{cat.name}</span>
+                      </a>
+                    ))}
+                  </div>
+
+                  <div className={`mt-3 pt-3 border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
+                    <a
+                      href="/hechos-3d"
+                      className={`block w-full text-center py-2.5 rounded-xl text-sm font-black uppercase tracking-wider ${
+                        darkMode
+                          ? 'bg-[#FACC15] text-black hover:bg-yellow-300'
+                          : 'bg-yellow-400 text-black hover:bg-yellow-500'
+                      }`}
+                    >
+                      Ver todos los productos 3D
+                    </a>
+                  </div>
+                </div>
+
+                <div className={`px-4 py-3 text-center border-t ${darkMode ? 'border-gray-800 bg-[#0E1522]' : 'border-gray-100 bg-gray-50'}`}>
+                  <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                    ¿No está lo que buscás?{' '}
+                    <a
+                      href="https://wa.me/5492216268594?text=Hola!%20Quiero%20consultar%20por%20un%20producto%203D%20personalizado"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#25D366] font-bold hover:underline"
+                    >
+                      Pedímelo por WhatsApp ↗
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </nav>
 
           {/* Action Area: Cart, Theme Toggle & WhatsApp */}
@@ -234,7 +363,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               <a
                 key={link.label}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
+                target={link.target}
+                rel={link.rel}
+                onClick={() => !link.target && setMobileMenuOpen(false)}
                 className={`block px-3 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
                   darkMode
                     ? 'text-gray-200 hover:bg-gray-800 hover:text-[#FACC15]'
@@ -242,8 +373,23 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }`}
               >
                 {link.label}
+                {link.target && <span className="ml-1 text-[9px] text-gray-400">↗</span>}
               </a>
             ))}
+            <a
+              key="hecho-en-3d"
+              href="/hechos-3d"
+              className={`block px-3 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
+                darkMode
+                  ? 'text-gray-200 hover:bg-gray-800 hover:text-[#FACC15]'
+                  : 'text-gray-800 hover:bg-gray-100 hover:text-yellow-600'
+              }`}
+            >
+              Hecho en 3D
+              <span className="ml-2 text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400">
+                {madeIn3dCategories.filter(c => c.stock === 'available').length} productos
+              </span>
+            </a>
             <div className="pt-2">
               <a
                 href="https://wa.me/5492216268594?text=Hola%20Raíces%20Personalizaciones,%20quiero%20información%20sobre%20sus%20productos"

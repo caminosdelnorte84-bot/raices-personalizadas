@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flame, Layers, CheckCircle, Award, Palette, Shirt, Headphones, Sparkles, Briefcase, Truck } from 'lucide-react';
+import { Layers, CheckCircle, Award, Palette, Shirt, Headphones, Truck } from 'lucide-react';
 import { HERO_SHOWCASE_IMG, PILLARS } from '../data/products';
 import { WhatsAppIcon } from './WhatsAppIcon';
 
@@ -39,60 +39,18 @@ export const Hero: React.FC<HeroProps> = ({ darkMode }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Headline and CTAs */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            {/* Workshop & B2B Badges */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
-              <div
-                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm ${
-                  darkMode
-                    ? 'bg-[#161F2E] border border-yellow-400/40 text-[#FACC15]'
-                    : 'bg-yellow-50 border border-yellow-300 text-yellow-800'
-                }`}
-              >
-                <Flame className="w-4 h-4 text-[#FACC15] animate-pulse" />
-                <span>Taller Textil &amp; Publicitario</span>
-              </div>
-
-              <a
-                href="#catalogo"
-                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border transition-colors ${
-                  darkMode
-                    ? 'bg-sky-950/40 border-sky-400/40 text-sky-400 hover:bg-sky-900/50'
-                    : 'bg-sky-50 border-sky-300 text-sky-800 hover:bg-sky-100'
-                }`}
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Placas de Aluminio 15×20 &amp; 30×20 cm</span>
-              </a>
-            </div>
-
-            {/* Main Punchy Title */}
+            {/* Main Title */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none uppercase">
               <span className={darkMode ? 'text-white' : 'text-slate-900'}>
-                CATÁLOGO DE <br />
+                TU IDEA <br />
               </span>
-              <span className="text-[#FACC15] underline decoration-[#0EA5E9] decoration-wavy decoration-2">
-                PRODUCTOS
-              </span>{' '}
-              <br />
-              <span className="text-[#0EA5E9] text-stroke-sm">PERSONALIZADOS</span>
+              <span className="text-[#FACC15]">NUESTRA PASIÓN</span>
             </h1>
 
-            {/* Script Subtitle */}
-            <p className="text-2xl sm:text-3xl font-brush text-[#FACC15]">
-              Transformamos tus ideas en productos{' '}
-              <span className="text-[#EC4899] italic font-script text-2xl sm:text-3xl">únicos</span>
-            </p>
-
-            <p
-              className={`text-sm sm:text-base max-w-2xl leading-relaxed mx-auto lg:mx-0 ${
-                darkMode ? 'text-gray-300' : 'text-gray-600'
-              }`}
-            >
-              Técnicas profesionales en{' '}
-              <strong className={darkMode ? 'text-white' : 'text-gray-900'}>
-                DTF textil, Sublimación, Bordados de alta definición, Grabado láser
-              </strong>{' '}
-              y vinilo térmico. Personalizamos placas de aluminio (15×20 y 30×20 cm), souvenirs, prendas, termos y recordatorios únicos a tu medida.
+            <p className={`text-sm sm:text-base max-w-2xl leading-relaxed mx-auto lg:mx-0 ${
+              darkMode ? 'text-gray-300' : 'text-gray-600'
+            }`}>
+              Combinamos técnicas profesionales, <strong className={darkMode ? 'text-white' : 'text-gray-900'}>impresión 3D</strong> y diseño a medida para transformar prendas, souvenirs y regalos únicos pensados <strong className="text-[#FACC15]">para vos</strong>.
             </p>
 
             {/* Action CTAs */}
@@ -104,19 +62,6 @@ export const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                 <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
                 <span>VER CATÁLOGO</span>
               </a>
-
-              <a
-                href="#catalogo"
-                className={`inline-flex items-center justify-center gap-2 px-5 py-3.5 border-2 font-bold text-sm sm:text-base rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 ${
-                  darkMode
-                    ? 'border-sky-400/70 bg-sky-400/10 hover:bg-sky-400 hover:text-black text-sky-300'
-                    : 'border-sky-400 bg-sky-50 hover:bg-sky-400 hover:text-black text-sky-900'
-                }`}
-              >
-                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-sky-400" />
-                <span>CUADROS DE ALUMINIO</span>
-              </a>
-
 
               <a
                 href="https://wa.me/5492216268594?text=Hola%20Raíces%20Personalizaciones,%20tengo%20un%20proyecto%20en%20mente%20y%20deseo%20información"
@@ -137,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ darkMode }) => {
             >
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-[#FACC15] shrink-0" />
-                <span>Desde 1 unidad hasta millares</span>
+                <span>Envíos desde 1 unidad</span>
               </div>
               <a
                 href="#envios"

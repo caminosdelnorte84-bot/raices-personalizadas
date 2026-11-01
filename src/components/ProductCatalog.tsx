@@ -38,6 +38,7 @@ interface ProductCatalogProps {
   onOpenShirtsPage: () => void;
   onOpenAluminumPlatesPage: () => void;
   onOpenCapsPage: () => void;
+  onOpenHechos3D: () => void;
 }
 
 export const ProductCatalog: React.FC<ProductCatalogProps> = ({
@@ -46,6 +47,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
   onOpenShirtsPage,
   onOpenAluminumPlatesPage,
   onOpenCapsPage,
+  onOpenHechos3D,
 }) => {
   const [selectedFilter, setSelectedFilter] = useState<string>('todos');
   const [configProduct, setConfigProduct] = useState<ProductLine | null>(null);
@@ -432,6 +434,21 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                     >
                       <Info className="w-3.5 h-3.5" />
                       <span>Diseñá tu gorra</span>
+                    </button>
+                  )}
+
+                  {prod.id === 'impresion-3d' && (
+                    <button
+                      type="button"
+                      onClick={onOpenHechos3D}
+                      className={`w-full py-2.5 px-4 rounded-xl border font-extrabold text-[11px] uppercase tracking-wider flex items-center justify-center gap-2 transition-colors ${
+                        darkMode
+                          ? 'border-yellow-400/40 text-yellow-300 hover:bg-yellow-400/10'
+                          : 'border-yellow-400 text-yellow-700 hover:bg-yellow-50'
+                      }`}
+                    >
+                      <Printer className="w-3.5 h-3.5" />
+                      <span>Ver tienda Hecho en 3D</span>
                     </button>
                   )}
 
