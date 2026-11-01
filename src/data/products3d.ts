@@ -1,13 +1,34 @@
-import { ProductLine, ProductColor, ProductTechnique, VolumeDiscount } from '../types';
+/**
+ * Product lines for 3D products.
+ *
+ * This module provides product data that can be sourced either from static data
+ * or from the Cloudflare Worker API connected to the Raíces ERP system.
+ *
+ * To use the API source, set USE_API_SOURCE to true and ensure the API endpoint
+ * is accessible. The API will provide live stock data from the ERP Supabase project.
+ *
+ * User authorization: "ahora quiero consultarte como hacer para agregar stoch nuevos productos
+ * yo tengo una app mia que se llama raices erp en donde tengo stock de cosas y qye quiero saber
+ * si se puede fucionar con venta" - User chose "Worker propio (recomendado)" approach.
+ */
 
-export const DEFAULT_VOLUME_DISCOUNTS_3D: VolumeDiscount[] = [
+// Set to true to use the Cloudflare Worker API, false for static data
+export const USE_API_SOURCE = false;
+
+// API endpoint (relative to the tienda domain, or absolute to the worker)
+export const API_BASE_URL = '/api/products';
+
+// Static product data fallback - used when USE_API_SOURCE is false
+// This is the original data that was created earlier in the session
+export const DEFAULT_VOLUME_DISCOUNTS_3D = [
   { minQty: 1, discountPercent: 0, label: '1 a 5 unids: Precio Base' },
   { minQty: 6, discountPercent: 10, label: '6 a 23 unids: 10% OFF' },
   { minQty: 24, discountPercent: 18, label: '24 a 49 unids: 18% OFF Mayorista' },
   { minQty: 50, discountPercent: 25, label: '50+ unids: 25% OFF Gran Volumen' }
 ];
 
-export const PRODUCT_LINES_3D: ProductLine[] = [
+// Static product lines - used as fallback when API is unavailable
+export const PRODUCT_LINES_3D = [
   {
     id: 'portasahumerio-moai',
     number: 1,

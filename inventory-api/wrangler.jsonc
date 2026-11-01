@@ -1,0 +1,11 @@
+name: "inventory-api"
+compatibility_date: "2025-01-01"
+
+[vars]
+# Supabase ERP connection - connects tienda to Raíces ERP inventory system
+# ERP Project: gjzvdepevoviygrcdwqj
+SUPABASE_URL = "https://gjzvdepevoviygrcdwqj.supabase.co"
+SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmoiOiJnbWFpbCIsImV4cCI6OTE1NzU5OTk5OX0."
+
+[vars.alias]
+"api.raicespersonalizadas.com" = true

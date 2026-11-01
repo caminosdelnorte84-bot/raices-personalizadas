@@ -40,12 +40,12 @@ export const Navbar: React.FC<NavbarProps> = ({
   ];
 
   const madeIn3dCategories = [
-    { name: 'Porta Sahumerios', count: 2, stock: 'available' },
-    { name: 'Macetas', count: 2, stock: 'available' },
-    { name: 'Sensoriales', count: 1, stock: 'available' },
-    { name: 'Juegos Didácticos', count: 1, stock: 'available' },
-    { name: 'Figuras para Colorear', count: 1, stock: 'limited' },
-    { name: 'Termoformados', count: 1, stock: 'made-to-order' },
+    { name: 'Porta Sahumerios', count: 2, href: '/hechos-3d' },
+    { name: 'Macetas', count: 2, href: '/hechos-3d' },
+    { name: 'Sensoriales', count: 1, href: '/hechos-3d' },
+    { name: 'Juegos Didácticos', count: 1, href: '/hechos-3d' },
+    { name: 'Figuras para Colorear', count: 1, href: '/hechos-3d' },
+    { name: 'Termoformados', count: 1, href: '/hechos-3d' },
   ];
 
   const productsCategories = [
@@ -219,14 +219,14 @@ export const Navbar: React.FC<NavbarProps> = ({
                     {madeIn3dCategories.map((cat) => (
                       <a
                         key={cat.name}
-                        href="/hechos-3d"
+                        href={cat.href}
                         className={`flex items-center gap-2 px-3 py-2 rounded-xl transition-colors ${
                           darkMode ? 'hover:bg-gray-800' : 'hover:bg-gray-50'
                         }`}
                       >
                         <span
                           className="w-2 h-2 rounded-full shrink-0"
-                          style={{ backgroundColor: cat.stock === 'available' ? '#FACC15' : cat.stock === 'limited' ? '#EC4899' : '#0EA5E9' }}
+                          style={{ backgroundColor: '#FACC15' }}
                         />
                         <span className="text-sm font-semibold">{cat.name}</span>
                       </a>
@@ -386,9 +386,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               }`}
             >
               Hecho en 3D
-              <span className="ml-2 text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400">
-                {madeIn3dCategories.filter(c => c.stock === 'available').length} productos
-              </span>
             </a>
             <div className="pt-2">
               <a

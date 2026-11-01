@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Check, ShoppingBag } from 'lucide-react';
-import { PRODUCT_LINES_3D } from '../data/products3d';
-import { useCart, formatPriceARS } from '../context/CartContext';
+import { PRODUCT_LINES_3D, USE_API_SOURCE, API_BASE_URL } from '../data/products3d';
+import { formatPriceARS } from '../context/CartContext';
+import { useCart } from '../context/CartContext';
 import { ProductColor, ProductTechnique } from '../types';
 
 interface Hechos3DPageProps {
@@ -17,6 +18,39 @@ export const Hechos3DPage: React.FC<Hechos3DPageProps> = ({ darkMode }) => {
     technique: ProductTechnique;
     quantity: number;
   } | null>(null);
+  const [productsFromApi, setProductsFromApi] = useState<any[]>([]);
+  const [loadingFromApi, setLoadingFromApi] = useState(true);
+  const [usingApi, setUsingApi] = useState(false);
+
+  // Fetch products from the Cloudflare Worker API if enabled
+  useEffect(() => {
+    if (USE_API_SOURCE) {
+      fetchProductsFromApi().then(() => setLoadingFromApi(false));
+      setUsingApi(true);
+    } else {
+      setLoadingFromApi(false);
+    }
+  }, []);
+
+  const fetchProductsFromApi = async () => {
+    try {
+      const response = await fetch(API_BASE_URL, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!response.ok) throw new Error('Failed to fetch products');
+      const data = await response.json();
+      if (data.success && data.products) {
+        setProductsFromApi(data.products);
+      }
+    } catch (error) {
+      console.error('Error fetching products from API:', error);
+      // Fall back to static data on error
+      setProductsFromApi(PRODUCT_LINES_3D);
+    }
+  };
 
   const handleAddToCart = (product: typeof PRODUCT_LINES_3D[0], config: {
     size: string;
