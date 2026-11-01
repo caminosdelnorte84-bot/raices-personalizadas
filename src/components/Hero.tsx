@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layers, CheckCircle, Award, Palette, Shirt, Headphones, Truck } from 'lucide-react';
+import { Layers, CheckCircle, Award, Palette, Shirt, Headphones, Sparkles, Truck } from 'lucide-react';
 import { HERO_SHOWCASE_IMG, PILLARS } from '../data/products';
 import { WhatsAppIcon } from './WhatsAppIcon';
 
